@@ -1,0 +1,52 @@
+<!--
+Example markup for a Bitrix template.
+The actual initial count can be rendered from the LIKES iblock property.
+The is-liked class can be added server-side when the current session contains
+an active like for this element.
+-->
+
+<button
+    type="button"
+    class="like-btn"
+    data-element-id="123"
+    aria-pressed="false"
+>
+    <span class="like-icon" aria-hidden="true">♥</span>
+    <span class="like-label">Лайк</span>
+    (<span class="like-count">0</span>)
+    <span class="like-error" role="status" hidden></span>
+</button>
+
+<style>
+.like-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1px solid #d7dce2;
+    border-radius: 0.6rem;
+    padding: 0.55rem 0.8rem;
+    background: #fff;
+    cursor: pointer;
+}
+
+.like-btn.is-liked {
+    font-weight: 600;
+}
+
+.like-btn.is-loading {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+.like-btn:disabled {
+    cursor: not-allowed;
+}
+
+.like-error {
+    position: absolute;
+    margin-top: 3rem;
+    font-size: 0.875rem;
+}
+</style>
+
+<script src="/local/js/like.js" defer></script>
